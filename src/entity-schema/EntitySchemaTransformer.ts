@@ -41,7 +41,8 @@ export class EntitySchemaTransformer {
                 schema: options.schema,
                 type: options.type || "regular",
                 orderBy: options.orderBy,
-                synchronize: options.synchronize
+                synchronize: options.synchronize,
+                expression: options.expression
             };
             metadataArgsStorage.tables.push(tableMetadata);
 
@@ -90,7 +91,9 @@ export class EntitySchemaTransformer {
                         generatedType: column.generatedType,
                         hstoreType: column.hstoreType,
                         array: column.array,
-                        transformer: column.transformer
+                        transformer: column.transformer,
+                        spatialFeatureType: column.spatialFeatureType,
+                        srid: column.srid
                     }
                 };
                 metadataArgsStorage.columns.push(columnAgrs);
