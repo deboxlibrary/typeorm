@@ -1,0 +1,26 @@
+{
+  "bracketSpacing": false,
+  "semi": true,
+  "singleQuote": false,
+  "printWidth": 110,
+  "overrides": [
+    {
+      "files": "*.{js,jsx}",
+      "options": {
+        "parser": "babel"
+      }
+    },
+    {
+      "files": "*.{ts,tsx}",
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}
