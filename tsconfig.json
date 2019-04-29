@@ -9,7 +9,7 @@
         "importHelpers": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "noImplicitAny": true,
         "declaration": true,
         "noFallthroughCasesInSwitch": true,

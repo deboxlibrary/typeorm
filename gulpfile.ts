@@ -152,6 +152,7 @@ export class Gulpfile {
         });
         const tsResult = gulp.src([
             "./src/**/*.ts",
+            "!**/__tests__/**/*",
             "./node_modules/@types/**/*.ts",
         ])
             .pipe(sourcemaps.init())
@@ -160,7 +161,7 @@ export class Gulpfile {
         return [
             tsResult.dts.pipe(gulp.dest("./build/package")),
             tsResult.js
-                .pipe(sourcemaps.write(".", { sourceRoot: "", includeContent: true }))
+                // .pipe(sourcemaps.write(".", { sourceRoot: "", includeContent: true }))
                 .pipe(gulp.dest("./build/package"))
         ];
     }
