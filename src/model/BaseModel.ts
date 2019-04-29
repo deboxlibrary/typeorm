@@ -3,8 +3,8 @@ import {UpdateDateColumn} from "../decorator/columns/UpdateDateColumn";
 
 export class BaseModel {
     @CreateDateColumn({type: "timestamp"})
-    createAt: number;
+    createdAt: number;
 
     @UpdateDateColumn({type: "timestamp"})
-    updateAt: number;
+    updatedAt: number;
 }
