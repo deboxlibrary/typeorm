@@ -10,13 +10,13 @@ export interface Pagination {
 }
 
 interface Options {
-    idName: string;
-    createAtName: string;
+    idName?: string;
+    createdAtName?: string;
 }
 
-const optionsDefault: Options = {
+const optionsDefault = {
     idName: "id",
-    createAtName: "createAt"
+    createdAtName: "createdAt"
 };
 
 /**
@@ -30,6 +30,8 @@ export const paginationSelectQueryBuilder = <T>(
     pagination: Pagination,
     options: Options = optionsDefault
 ): SelectQueryBuilder<T> => {
+    options.createdAtName = options.createdAtName || optionsDefault.createdAtName;
+    options.idName = options.idName || optionsDefault.idName;
     const alias = select.alias;
     const op = !pagination.isForward ? ">" : "<";
     if (pagination.createAt) {
@@ -51,7 +53,7 @@ export const paginationSelectQueryBuilder = <T>(
                     )
                 )
         }
-        select.addOrderBy(options.createAtName, pagination.isAscending ? "ASC" : "DESC")
+        select.addOrderBy(options.createdAtName, pagination.isAscending ? "ASC" : "DESC")
             .addOrderBy(options.idName, pagination.isAscending ? "ASC" : "DESC");
     } else {
         if (pagination.id) {
