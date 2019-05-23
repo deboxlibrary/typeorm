@@ -152,7 +152,6 @@ export {EntitySchemaIndexOptions} from "./entity-schema/EntitySchemaIndexOptions
 export {EntitySchemaRelationOptions} from "./entity-schema/EntitySchemaRelationOptions";
 export {ColumnType} from "./driver/types/ColumnTypes";
 export {PromiseUtils} from "./util/PromiseUtils";
-export {BaseModel} from './model/BaseModel';
 export {paginationSelectQueryBuilder, Pagination} from './util/PaginationUtils';
 
 // -------------------------------------------------------------------------
