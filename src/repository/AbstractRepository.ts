@@ -62,7 +62,7 @@ export class AbstractRepository<Entity extends ObjectLiteral> {
      * Creates a new query builder for the repository's entity that can be used to build a sql query.
      * If current repository does not manage any entity, then exception will be thrown.
      */
-    protected createQueryBuilder(alias: string): SelectQueryBuilder<Entity> {
+    protected createQueryBuilder(alias?: string): SelectQueryBuilder<Entity> {
         const target = this.getCustomRepositoryTarget(this.constructor);
         if (!target)
             throw new CustomRepositoryDoesNotHaveEntityError(this.constructor);
@@ -73,7 +73,7 @@ export class AbstractRepository<Entity extends ObjectLiteral> {
     /**
      * Creates a new query builder for the given entity that can be used to build a sql query.
      */
-    protected createQueryBuilderFor<T>(entity: ObjectType<T>, alias: string): SelectQueryBuilder<T> {
+    protected createQueryBuilderFor<T>(entity: ObjectType<T>, alias?: string): SelectQueryBuilder<T> {
         return this.getRepositoryFor(entity).createQueryBuilder(alias);
     }
 
