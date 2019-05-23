@@ -174,7 +174,7 @@ export class FindOptionsUtils {
         if (options.lock) {
             if (options.lock.mode === "optimistic") {
                 qb.setLock(options.lock.mode, options.lock.version as any);
-            } else if (options.lock.mode === "pessimistic_read" || options.lock.mode === "pessimistic_write") {
+            } else if (options.lock.mode === "pessimistic_read" || options.lock.mode === "pessimistic_write" || options.lock.mode === "dirty_read") {
                 qb.setLock(options.lock.mode);
             }
         }
@@ -234,7 +234,7 @@ export class FindOptionsUtils {
 
     public static joinEagerRelations(qb: SelectQueryBuilder<any>, alias: string, metadata: EntityMetadata) {
         metadata.eagerRelations.forEach(relation => {
-            const relationAlias = alias + "_" + relation.propertyPath.replace(".", "_");
+            const relationAlias = qb.connection.namingStrategy.eagerJoinRelationAlias(alias, relation.propertyPath);
             qb.leftJoinAndSelect(alias + "." + relation.propertyPath, relationAlias);
             this.joinEagerRelations(qb, relationAlias, relation.inverseEntityMetadata);
         });
