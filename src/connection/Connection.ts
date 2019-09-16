@@ -306,6 +306,18 @@ export class Connection {
     }
 
     /**
+     * Lists all migrations and whether they have been run.
+     * Returns true if there are pending migrations
+     */
+    async showMigrations(): Promise<boolean> {
+        if (!this.isConnected) {
+            throw new CannotExecuteNotConnectedError(this.name);
+        }
+        const migrationExecutor = new MigrationExecutor(this);
+        return await migrationExecutor.showMigrations();
+    }
+
+    /**
      * Checks if entity metadata exist for the given entity class, target name or table name.
      */
     hasMetadata(target: Function|EntitySchema<any>|string): boolean {
@@ -504,6 +516,8 @@ export class Connection {
         // create migration instances
         const migrations = connectionMetadataBuilder.buildMigrations(this.options.migrations || []);
         ObjectUtils.assign(this, { migrations: migrations });
+
+        this.driver.database = <string> this.options.database;
 
         // validate all created entity metadatas to make sure user created entities are valid and correct
         entityMetadataValidator.validateMany(this.entityMetadatas.filter(metadata => metadata.tableType !== "view"), this.driver);

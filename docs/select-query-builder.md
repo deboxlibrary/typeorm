@@ -304,7 +304,7 @@ Which will produce:
 SELECT ... FROM users user WHERE user.name = 'Timber'
 ```
 
-You can add `AND` into an exist `WHERE` expression:
+You can add `AND` into an existing `WHERE` expression:
 
 ```typescript
 createQueryBuilder("user")
@@ -832,6 +832,7 @@ const users = await getRepository(User)
     .createQueryBuilder("user")
     .setLock("dirty_read")
     .getMany();
+```
 
 To use optimistic locking use the following method:
 

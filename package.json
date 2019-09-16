@@ -58,6 +58,9 @@
     "@types/yargs": "^12.0.9",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "class-transformer": "^0.2.3",
+    "conventional-changelog-angular": "^5.0.3",
+    "conventional-changelog-cli": "^2.0.21",
     "del": "^3.0.0",
     "eslint": "^5.16.0",
     "gulp": "^4.0.0",
@@ -87,10 +90,10 @@
     "sinon-chai": "^3.3.0",
     "source-map-support": "^0.5.10",
     "sql.js": "^1.0.0",
-    "sqlite3": "^4.0.6",
+    "sqlite3": "^4.0.9",
     "ts-node": "^8.0.2",
     "tslint": "^5.13.1",
-    "typescript": "^3.5.3"
+    "typeorm-aurora-data-api-driver": "^1.1.1"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",
@@ -119,7 +122,7 @@
     "test": "rimraf ./build && tsc && mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "test-fast": "mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "compile": "rimraf ./build && tsc",
-    "publish:deploy": "rimraf build && gulp package && cd build/package && npm publish",
+	"publish:deploy": "rimraf build && gulp package && cd build/package && npm publish",
     "lint": "tslint -p ."
   },
   "bin": {
