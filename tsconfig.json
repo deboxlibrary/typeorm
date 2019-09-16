@@ -20,10 +20,10 @@
         "noUnusedLocals": true,
         "downlevelIteration": true
     },
-    "exclude": [
+  "include": ["./src", "*.ts"],
+  "exclude": [
         "tmp",
         "temp",
-        "build",
-        "node_modules"
+        "build"
     ]
 }

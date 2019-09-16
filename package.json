@@ -1,6 +1,6 @@
 {
   "name": "@deboxsoft/typeorm",
-  "version": "0.2.21-beta.7",
+  "version": "0.2.21-beta.8",
   "description": "Data-Mapper ORM for TypeScript, ES7, ES6, ES5. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, MongoDB databases.",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -45,14 +45,13 @@
     "oracle-orm"
   ],
   "devDependencies": {
-    "@deboxsoft/devel": "^2.1.4",
-    "@deboxsoft/devel-typescript": "0.0.14",
-    "@deboxsoft/eslint-config-devel": "^1.0.11",
+    "@deboxsoft/devel": "^3.0.3",
+    "@deboxsoft/eslint-config-devel": "^3.0.3",
     "@types/chai": "^4.1.2",
     "@types/chai-as-promised": "7.1.0",
     "@types/debug": "4.1.2",
     "@types/mocha": "^5.2.6",
-    "@types/node": "^9.6.0",
+    "@types/node": "^11.13.19",
     "@types/rimraf": "^2.0.2",
     "@types/sinon": "^7.0.8",
     "@types/source-map-support": "^0.4.2",
@@ -91,7 +90,7 @@
     "sqlite3": "^4.0.6",
     "ts-node": "^8.0.2",
     "tslint": "^5.13.1",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",
@@ -120,9 +119,7 @@
     "test": "rimraf ./build && tsc && mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "test-fast": "mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "compile": "rimraf ./build && tsc",
-    "package": "gulp package",
-    "publish:package": "gulp",
-    "publish-next": "gulp publish-next",
+    "publish:deploy": "rimraf build && gulp package && cd build/package && npm publish",
     "lint": "tslint -p ."
   },
   "bin": {
