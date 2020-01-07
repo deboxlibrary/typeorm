@@ -297,7 +297,10 @@ export class MysqlDriver implements Driver {
 
     constructor(connection: Connection) {
         this.connection = connection;
-        this.options = connection.options as MysqlConnectionOptions;
+        this.options = {
+            legacySpatialSupport: true,
+            ...connection.options
+        } as MysqlConnectionOptions;
         this.isReplicated = this.options.replication ? true : false;
 
         // load mysql package
@@ -866,7 +869,7 @@ export class MysqlDriver implements Driver {
      */
     protected createConnectionOptions(options: MysqlConnectionOptions, credentials: MysqlConnectionCredentialsOptions): Promise<any> {
 
-        credentials = Object.assign(credentials, DriverUtils.buildDriverOptions(credentials)); // todo: do it better way
+        credentials = Object.assign({}, credentials, DriverUtils.buildDriverOptions(credentials)); // todo: do it better way
 
         // build connection options for the driver
         return Object.assign({}, {

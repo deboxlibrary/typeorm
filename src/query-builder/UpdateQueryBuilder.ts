@@ -1,4 +1,5 @@
 import {CockroachDriver} from "../driver/cockroachdb/CockroachDriver";
+import {SapDriver} from "../driver/sap/SapDriver";
 import {QueryBuilder} from "./QueryBuilder";
 import {ObjectLiteral} from "../common/ObjectLiteral";
 import {Connection} from "../connection/Connection";
@@ -21,6 +22,7 @@ import {OracleDriver} from "../driver/oracle/OracleDriver";
 import {UpdateValuesMissingError} from "../error/UpdateValuesMissingError";
 import {EntityColumnNotFound} from "../error/EntityColumnNotFound";
 import {QueryDeepPartialEntity} from "./QueryPartialEntity";
+import {AuroraDataApiDriver} from "../driver/aurora-data-api/AuroraDataApiDriver";
 
 /**
  * Allows to build complex sql queries in a fashion way and execute those queries.
@@ -370,8 +372,10 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
         const updateColumnAndValues: string[] = [];
         const newParameters: ObjectLiteral = {};
         let parametersCount =   this.connection.driver instanceof MysqlDriver ||
+                                this.connection.driver instanceof AuroraDataApiDriver ||
                                 this.connection.driver instanceof OracleDriver ||
-                                this.connection.driver instanceof AbstractSqliteDriver
+                                this.connection.driver instanceof AbstractSqliteDriver ||
+                                this.connection.driver instanceof SapDriver
             ? 0 : Object.keys(this.expressionMap.nativeParameters).length;
         if (metadata) {
             EntityMetadata.createPropertyPath(metadata, valuesSet).forEach(propertyPath => {
@@ -399,6 +403,8 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                     // todo: duplication zone
                     if (value instanceof Function) { // support for SQL expressions in update query
                         updateColumnAndValues.push(this.escape(column.databaseName) + " = " + value());
+                    } else if (this.connection.driver instanceof SapDriver && value === null) {
+                        updateColumnAndValues.push(this.escape(column.databaseName) + " = NULL");
                     } else {
                         if (this.connection.driver instanceof SqlServerDriver) {
                             value = this.connection.driver.parametrizeValue(column, value);
@@ -408,16 +414,24 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                         }
 
                         if (this.connection.driver instanceof MysqlDriver ||
+                            this.connection.driver instanceof AuroraDataApiDriver ||
                             this.connection.driver instanceof OracleDriver ||
-                            this.connection.driver instanceof AbstractSqliteDriver) {
+                            this.connection.driver instanceof AbstractSqliteDriver ||
+                            this.connection.driver instanceof SapDriver) {
                             newParameters[paramName] = value;
                         } else {
                             this.expressionMap.nativeParameters[paramName] = value;
                         }
 
                         let expression = null;
-                        if (this.connection.driver instanceof MysqlDriver && this.connection.driver.spatialTypes.indexOf(column.type) !== -1) {
-                            expression = `GeomFromText(${this.connection.driver.createParameter(paramName, parametersCount)})`;
+                        if ((this.connection.driver instanceof MysqlDriver || this.connection.driver instanceof AuroraDataApiDriver) && this.connection.driver.spatialTypes.indexOf(column.type) !== -1) {
+                            const useLegacy = this.connection.driver.options.legacySpatialSupport;
+                            const geomFromText = useLegacy ? "GeomFromText" : "ST_GeomFromText";
+                            if (column.srid != null) {
+                                expression = `${geomFromText}(${this.connection.driver.createParameter(paramName, parametersCount)}, ${column.srid})`;
+                            } else {
+                                expression = `${geomFromText}(${this.connection.driver.createParameter(paramName, parametersCount)})`;
+                            }
                         } else if (this.connection.driver instanceof PostgresDriver && this.connection.driver.spatialTypes.indexOf(column.type) !== -1) {
                             if (column.srid != null) {
                               expression = `ST_SetSRID(ST_GeomFromGeoJSON(${this.connection.driver.createParameter(paramName, parametersCount)}), ${column.srid})::${column.type}`;
@@ -445,6 +459,8 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                 // todo: duplication zone
                 if (value instanceof Function) { // support for SQL expressions in update query
                     updateColumnAndValues.push(this.escape(key) + " = " + value());
+                } else if (this.connection.driver instanceof SapDriver && value === null) {
+                    updateColumnAndValues.push(this.escape(key) + " = NULL");
                 } else {
 
                     // we need to store array values in a special class to make sure parameter replacement will work correctly
@@ -452,8 +468,10 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
                     //     value = new ArrayParameter(value);
 
                     if (this.connection.driver instanceof MysqlDriver ||
+                        this.connection.driver instanceof AuroraDataApiDriver ||
                         this.connection.driver instanceof OracleDriver ||
-                        this.connection.driver instanceof AbstractSqliteDriver) {
+                        this.connection.driver instanceof AbstractSqliteDriver ||
+                        this.connection.driver instanceof SapDriver) {
                         newParameters[key] = value;
                     } else {
                         this.expressionMap.nativeParameters[key] = value;
@@ -472,8 +490,10 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
         // we re-write parameters this way because we want our "UPDATE ... SET" parameters to be first in the list of "nativeParameters"
         // because some drivers like mysql depend on order of parameters
         if (this.connection.driver instanceof MysqlDriver ||
+            this.connection.driver instanceof AuroraDataApiDriver ||
             this.connection.driver instanceof OracleDriver ||
-            this.connection.driver instanceof AbstractSqliteDriver) {
+            this.connection.driver instanceof AbstractSqliteDriver ||
+            this.connection.driver instanceof SapDriver) {
             this.expressionMap.nativeParameters = Object.assign(newParameters, this.expressionMap.nativeParameters);
         }
 
@@ -519,7 +539,7 @@ export class UpdateQueryBuilder<Entity> extends QueryBuilder<Entity> implements 
         let limit: number|undefined = this.expressionMap.limit;
 
         if (limit) {
-            if (this.connection.driver instanceof MysqlDriver) {
+            if (this.connection.driver instanceof MysqlDriver || this.connection.driver instanceof AuroraDataApiDriver) {
                 return " LIMIT " + limit;
             } else {
                 throw new LimitOnUpdateNotSupportedError();

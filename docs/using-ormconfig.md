@@ -113,6 +113,7 @@ List of available env variables you can set:
 * TYPEORM_SYNCHRONIZE
 * TYPEORM_DROP_SCHEMA
 * TYPEORM_MIGRATIONS_RUN
+* TYPEORM_MIGRATIONS_TRANSACTION_MODE
 * TYPEORM_ENTITIES
 * TYPEORM_MIGRATIONS
 * TYPEORM_MIGRATIONS_TABLE_NAME
@@ -142,7 +143,7 @@ If your app has multiple connections then use alternative configuration storage 
 
 If you need to pass a driver-specific option, e.g. `charset` for MySQL, you could use the `TYPEORM_DRIVER_EXTRA` variable in JSON format, e.g.
 ```
-TYPEORM_DRIVER_EXTRA='{"charset": "utf8mb4"}'`
+TYPEORM_DRIVER_EXTRA='{"charset": "utf8mb4"}'
 ```
 ## Using `ormconfig.yml`
 

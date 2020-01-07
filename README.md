@@ -16,7 +16,7 @@
     <a href="https://codecov.io/gh/typeorm/typeorm">
         <img alt="Codecov" src="https://img.shields.io/codecov/c/github/typeorm/typeorm.svg">
     </a>
-	<a href="https://join.slack.com/t/typeorm/shared_invite/enQtNDQ1MzA3MDA5MTExLTFiNDEyOGUxZGQyYWIwOTA0NDQxODdkOGQ0OTUxNzFjYjUwY2E0ZmFlODc5OTYyYzAzNGM3MGZjYzhjYTBiZTY">
+	<a href="https://join.slack.com/t/typeorm/shared_invite/enQtNDQ1MzA3MDA5MTExLTUxNTZhM2Q4NDNhMjMzNjQ2NGM1ZjI1ZGRkNjJjYzI4OTZjMGYyYTc0MzAxYTdjMWE3ZDIxOWUzZTdlM2QxNTY">
 		<img src="https://img.shields.io/badge/chat-on%20slack-blue.svg">
 	</a>
   <br>
@@ -31,7 +31,7 @@ that help you to develop any kind of application that uses databases - from
 small applications with a few tables to large scale enterprise applications
 with multiple databases.
 
-TypeORM supports both Active Record and Data Mapper patterns,
+TypeORM supports both [Active Record](./docs/active-record-data-mapper.md#what-is-the-active-record-pattern) and [Data Mapper](./docs/active-record-data-mapper.md#what-is-the-data-mapper-pattern) patterns,
 unlike all other JavaScript ORMs currently in existence,
 which means you can write high quality, loosely coupled, scalable,
 maintainable applications the most productive way.
@@ -41,7 +41,7 @@ TypeORM is highly influenced by other ORMs, such as [Hibernate](http://hibernate
 
 Some TypeORM features:
 
-* supports both DataMapper and ActiveRecord (your choice)
+* supports both [DataMapper](./docs/active-record-data-mapper.md#what-is-the-data-mapper-pattern) and [ActiveRecord](./docs/active-record-data-mapper.md#what-is-the-active-record-pattern) (your choice)
 * entities and columns
 * database-specific column types
 * entity manager
@@ -70,7 +70,7 @@ Some TypeORM features:
 * supports closure table pattern
 * schema declaration in models or separate configuration files
 * connection configuration in json / xml / yml / env formats
-* supports MySQL / MariaDB / Postgres / CockroachDB / SQLite / Microsoft SQL Server / Oracle / sql.js
+* supports MySQL / MariaDB / Postgres / CockroachDB / SQLite / Microsoft SQL Server / Oracle / SAP Hana / sql.js
 * supports MongoDB NoSQL database
 * works in NodeJS / Browser / Ionic / Cordova / React Native / NativeScript / Expo / Electron platforms
 * TypeScript and JavaScript support
@@ -203,10 +203,15 @@ await timber.remove();
 
         `npm install oracledb --save`
 
-        Install only *one* of them, depending on which database you use.
-
         To make the Oracle driver work, you need to follow the installation instructions from
         [their](https://github.com/oracle/node-oracledb) site.
+
+    * for **SAP Hana**
+
+        ```
+        npm config set @sap:registry https://npm.sap.com
+        npm i @sap/hdbext
+        ```
 
     * for **MongoDB** (experimental)
 
@@ -214,13 +219,14 @@ await timber.remove();
 
     * for **NativeScript**, **react-native** and **Cordova**
 
-        Check [documentation of supported platforms](docs/supported-platforms.md)
+        Check [documentation of supported platforms](./docs/supported-platforms.md)
 
+    Install only *one* of them, depending on which database you use.
 
 
 ##### TypeScript configuration
 
-Also, make sure you are using TypeScript compiler version **3.3** or greater,
+Also, make sure you are using TypeScript version **3.3** or higher,
 and you have enabled the following settings in `tsconfig.json`:
 
 ```json

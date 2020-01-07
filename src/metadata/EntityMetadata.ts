@@ -3,6 +3,7 @@ import {ObjectLiteral} from "../common/ObjectLiteral";
 import {Connection} from "../connection/Connection";
 import {PostgresConnectionOptions} from "../driver/postgres/PostgresConnectionOptions";
 import {PostgresDriver} from "../driver/postgres/PostgresDriver";
+import {SapDriver} from "../driver/sap/SapDriver";
 import {SqlServerConnectionOptions} from "../driver/sqlserver/SqlServerConnectionOptions";
 import {SqlServerDriver} from "../driver/sqlserver/SqlServerDriver";
 import {CannotCreateEntityIdMapError} from "../error/CannotCreateEntityIdMapError";
@@ -100,6 +101,11 @@ export class EntityMetadata {
      * Used in views
      */
     expression?: string|((connection: Connection) => SelectQueryBuilder<any>);
+
+    /**
+     * Enables Sqlite "WITHOUT ROWID" modifier for the "CREATE TABLE" statement
+     */
+    withoutRowid?: boolean = false;
 
     /**
      * Original user-given table name (taken from schema or @Entity(tableName) decorator).
@@ -496,6 +502,7 @@ export class EntityMetadata {
         this.target = this.tableMetadataArgs.target;
         this.tableType = this.tableMetadataArgs.type;
         this.expression = this.tableMetadataArgs.expression;
+        this.withoutRowid = this.tableMetadataArgs.withoutRowid;
     }
 
     // -------------------------------------------------------------------------
@@ -794,6 +801,7 @@ export class EntityMetadata {
         this.target = this.target ? this.target : this.tableName;
         this.name = this.targetName ? this.targetName : this.tableName;
         this.expression = this.tableMetadataArgs.expression;
+        this.withoutRowid = this.tableMetadataArgs.withoutRowid === true ? true : false;
         this.tablePath = this.buildTablePath();
         this.schemaPath = this.buildSchemaPath();
         this.orderBy = (this.tableMetadataArgs.orderBy instanceof Function) ? this.tableMetadataArgs.orderBy(this.propertiesMap) : this.tableMetadataArgs.orderBy; // todo: is propertiesMap available here? Looks like its not
@@ -839,7 +847,7 @@ export class EntityMetadata {
      */
     protected buildTablePath(): string {
         let tablePath = this.tableName;
-        if (this.schema && ((this.connection.driver instanceof PostgresDriver) || (this.connection.driver instanceof SqlServerDriver))) {
+        if (this.schema && ((this.connection.driver instanceof PostgresDriver) || (this.connection.driver instanceof SqlServerDriver) || (this.connection.driver instanceof SapDriver))) {
             tablePath = this.schema + "." + tablePath;
         }
 
