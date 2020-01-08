@@ -1,7 +1,7 @@
 {
     "version": "2.1.1",
     "compilerOptions": {
-        "lib": ["es5", "es6"],
+        "lib": ["es6"],
         "outDir": "build/compiled",
         "target": "es5",
         "module": "commonjs",
@@ -12,6 +12,7 @@
         "sourceMap": false,
         "noImplicitAny": true,
         "declaration": true,
+        "skipLibCheck": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
         "stripInternal": true,

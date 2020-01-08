@@ -126,7 +126,7 @@
     "test": "rimraf ./build && tsc && mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "test-fast": "mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "compile": "rimraf ./build && tsc",
-    "publish:deploy": "rimraf build && gulp package && cd build/package && npm publish",
+    "publish:deploy": "rimraf build && gulp package && cd build/package && yarn publish",
     "lint": "tslint -p ."
   },
   "bin": {
