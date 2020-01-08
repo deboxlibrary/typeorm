@@ -49,7 +49,6 @@
   "devDependencies": {
     "@deboxsoft/devel": "^3.0.3",
     "@deboxsoft/eslint-config-devel": "^3.0.3",
-    "@sap/hdbext": "^6.1.1",
     "@types/chai": "^4.1.2",
     "@types/chai-as-promised": "7.1.0",
     "@types/debug": "4.1.2",
