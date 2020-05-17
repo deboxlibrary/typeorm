@@ -231,6 +231,9 @@ export class AuroraDataApiDriver implements Driver {
         updateDate: "datetime",
         updateDatePrecision: 6,
         updateDateDefault: "CURRENT_TIMESTAMP(6)",
+        deleteDate: "datetime",
+        deleteDatePrecision: 6,
+        deleteDateNullable: true,
         version: "int",
         treeLevel: "int",
         migrationId: "int",
@@ -303,6 +306,7 @@ export class AuroraDataApiDriver implements Driver {
             this.options.resourceArn,
             this.options.database,
             (query: string, parameters?: any[]) => this.connection.logger.logQuery(query, parameters),
+            this.options.serviceConfigOptions
         );
 
         // validate options to make sure everything is set
@@ -761,6 +765,10 @@ export class AuroraDataApiDriver implements Driver {
      */
     protected loadDependencies(): void {
         this.DataApiDriver = PlatformTools.load("typeorm-aurora-data-api-driver");
+
+        // Driver uses rollup for publishing, which has issues when using typeorm in combination with webpack
+        // See https://github.com/webpack/webpack/issues/4742#issuecomment-295556787
+        this.DataApiDriver = this.DataApiDriver.default || this.DataApiDriver;
     }
 
     /**
