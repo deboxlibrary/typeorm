@@ -1,7 +1,7 @@
 {
   "name": "@deboxsoft/typeorm",
   "private": true,
-  "version": "0.2.22",
+  "version": "0.2.24",
   "description": "Data-Mapper ORM for TypeScript, ES7, ES6, ES5. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, MongoDB databases.",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -24,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/typeorm/typeorm.git"
+    "url": "https://github.com/deboxsoft/typeorm.git"
   },
   "bugs": {
-    "url": "https://github.com/typeorm/typeorm/issues"
+    "url": "https://github.com/deboxsoft/typeorm/issues"
   },
   "tags": [
     "orm",
@@ -55,6 +55,7 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.19",
     "@types/rimraf": "^2.0.2",
+    "@types/sha.js": "^2.4.0",
     "@types/sinon": "^7.0.8",
     "@types/source-map-support": "^0.4.2",
     "@types/yargs": "^12.0.9",
@@ -95,7 +96,7 @@
     "sqlite3": "^4.0.9",
     "ts-node": "^8.0.2",
     "tslint": "^5.13.1",
-    "typeorm-aurora-data-api-driver": "^1.1.1",
+    "typeorm-aurora-data-api-driver": "^1.2.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
@@ -107,8 +108,9 @@
     "dotenv": "^6.2.0",
     "glob": "^7.1.2",
     "js-yaml": "^3.13.1",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.3",
     "reflect-metadata": "^0.1.13",
+    "sha.js": "^2.4.11",
     "tslib": "^1.9.0",
     "xml2js": "^0.4.17",
     "yargonaut": "^1.1.2",
@@ -126,7 +128,10 @@
     "test-fast": "mocha --file ./build/compiled/test/utils/test-setup.js --bail --recursive --timeout 60000 ./build/compiled/test",
     "compile": "rimraf ./build && tsc",
     "publish:deploy": "rimraf build && gulp package && cd build/package && yarn publish",
-    "lint": "tslint -p ."
+    "watch": "./node_modules/.bin/tsc -w",
+    "package": "gulp package",
+    "lint": "tslint -p .",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2"
   },
   "bin": {
     "typeorm": "./cli.js"
