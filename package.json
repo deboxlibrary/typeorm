@@ -1,5 +1,5 @@
 {
-  "name": "@deboxsoft/typeorm",
+  "name": "@deboxlibrary/typeorm",
   "private": true,
   "version": "0.2.25",
   "description": "Data-Mapper ORM for TypeScript, ES7, ES6, ES5. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, MongoDB databases.",
@@ -24,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deboxsoft/typeorm.git"
+    "url": "https://github.com/deboxlibrary/typeorm.git"
   },
   "bugs": {
-    "url": "https://github.com/deboxsoft/typeorm/issues"
+    "url": "https://github.com/deboxlibrary/typeorm/issues"
   },
   "tags": [
     "orm",
