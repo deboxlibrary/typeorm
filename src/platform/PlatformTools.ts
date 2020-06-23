@@ -62,6 +62,12 @@ export class PlatformTools {
                     return require("mysql2");
 
                 /**
+                 * mariadb
+                 */
+                case "mariadb":
+                    return require("mariadb");
+
+                /**
                 * oracle
                 */
                 case "oracledb":
