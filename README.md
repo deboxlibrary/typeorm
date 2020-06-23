@@ -106,6 +106,8 @@ export class User {
 And your domain logic looks like this:
 
 ```typescript
+const repository = connection.getRepository(User);
+
 const user = new User();
 user.firstName = "Timber";
 user.lastName = "Saw";
@@ -213,6 +215,8 @@ await timber.remove();
         npm i @sap/hana-client
 		npm i hdb-pool
         ```
+        
+        *SAP Hana support made possible by sponsorship of [Neptune Software](https://www.neptune-software.com/).*
 
     * for **MongoDB** (experimental)
 
