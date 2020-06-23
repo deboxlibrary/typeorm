@@ -47,8 +47,8 @@
     "oracle-orm"
   ],
   "devDependencies": {
-    "@deboxsoft/devel": "^3.0.3",
-    "@deboxsoft/eslint-config-devel": "^3.0.3",
+    "@deboxsoft/devel": "^4.2.0",
+    "@deboxsoft/eslint-config-devel": "^5.0.0",
     "@types/chai": "^4.1.2",
     "@types/chai-as-promised": "7.1.0",
     "@types/debug": "4.1.2",
