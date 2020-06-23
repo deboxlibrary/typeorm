@@ -1,3 +1,446 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.2.25 (2020-06-23)
+
+
+### Bug Fixes
+
+* revert fix handle URL objects as column field values ([#6145](https://github.com/deboxlibrary/typeorm/issues/6145)) ([e073e02](https://github.com/deboxlibrary/typeorm/commit/e073e02))
+* SqlQueryRunner.hasColumn was not working ([#6146](https://github.com/deboxlibrary/typeorm/issues/6146)) ([a595fed](https://github.com/deboxlibrary/typeorm/commit/a595fed)), closes [#5718](https://github.com/deboxlibrary/typeorm/issues/5718)
+
+
+### Features
+
+* add AWS configurationOptions to aurora-data-api-pg connector ([#6106](https://github.com/deboxlibrary/typeorm/issues/6106)) ([203f51d](https://github.com/deboxlibrary/typeorm/commit/203f51d))
+* add postgres connection timeout option ([#6160](https://github.com/deboxlibrary/typeorm/issues/6160)) ([0072149](https://github.com/deboxlibrary/typeorm/commit/0072149))
+
+### 0.2.25 (2020-05-19)
+
+
+### Bug Fixes
+
+* 'in' clause case for ORACLE ([#5345](https://github.com/deboxlibrary/typeorm/issues/5345)) ([8977365](https://github.com/deboxlibrary/typeorm/commit/8977365))
+* calling EntityManager.insert() with an empty array of entities ([#5745](https://github.com/deboxlibrary/typeorm/issues/5745)) ([f8c52f3](https://github.com/deboxlibrary/typeorm/commit/f8c52f3)), closes [#5734](https://github.com/deboxlibrary/typeorm/issues/5734) [#5734](https://github.com/deboxlibrary/typeorm/issues/5734) [#5734](https://github.com/deboxlibrary/typeorm/issues/5734)
+* columns with transformer should be normalized for update ([#5700](https://github.com/deboxlibrary/typeorm/issues/5700)) ([4ef6b65](https://github.com/deboxlibrary/typeorm/commit/4ef6b65)), closes [#2703](https://github.com/deboxlibrary/typeorm/issues/2703)
+* escape column comment in mysql driver ([#6056](https://github.com/deboxlibrary/typeorm/issues/6056)) ([5fc802d](https://github.com/deboxlibrary/typeorm/commit/5fc802d))
+* expo sqlite driver disconnect() ([#6027](https://github.com/deboxlibrary/typeorm/issues/6027)) ([61d59ca](https://github.com/deboxlibrary/typeorm/commit/61d59ca))
+* HANA - SSL options, column delta detection mechanism ([#5938](https://github.com/deboxlibrary/typeorm/issues/5938)) ([2fd0a8a](https://github.com/deboxlibrary/typeorm/commit/2fd0a8a))
+* handle URL objects as column field values ([#5771](https://github.com/deboxlibrary/typeorm/issues/5771)) ([50a0641](https://github.com/deboxlibrary/typeorm/commit/50a0641)), closes [#5762](https://github.com/deboxlibrary/typeorm/issues/5762) [#5762](https://github.com/deboxlibrary/typeorm/issues/5762)
+* insert and update query builder to handle mssql geometry column correctly ([#5947](https://github.com/deboxlibrary/typeorm/issues/5947)) ([87cc6f4](https://github.com/deboxlibrary/typeorm/commit/87cc6f4))
+* migrations being generated for FK even if there are no changes ([#5869](https://github.com/deboxlibrary/typeorm/issues/5869)) ([416e419](https://github.com/deboxlibrary/typeorm/commit/416e419))
+* multiple assignments to same column on UPDATE [#2651](https://github.com/deboxlibrary/typeorm/issues/2651) ([#5598](https://github.com/deboxlibrary/typeorm/issues/5598)) ([334e17e](https://github.com/deboxlibrary/typeorm/commit/334e17e))
+* prevent TypeError when calling bind function with sql.js 1.2.X ([#5789](https://github.com/deboxlibrary/typeorm/issues/5789)) ([c6cbddc](https://github.com/deboxlibrary/typeorm/commit/c6cbddc))
+* prototype pollution issue ([#6096](https://github.com/deboxlibrary/typeorm/issues/6096)) ([db9d0fa](https://github.com/deboxlibrary/typeorm/commit/db9d0fa))
+* provide a default empty array for parameters. ([#5677](https://github.com/deboxlibrary/typeorm/issues/5677)) ([9e8a8cf](https://github.com/deboxlibrary/typeorm/commit/9e8a8cf))
+* redundant undefined parameters are not generated in migration files anymore ([#5690](https://github.com/deboxlibrary/typeorm/issues/5690)) ([d5cde49](https://github.com/deboxlibrary/typeorm/commit/d5cde49))
+* replacing instanceof Array checks to Array.isArray because instanceof Array seems to be problematic on some platforms ([#5606](https://github.com/deboxlibrary/typeorm/issues/5606)) ([b99b4ad](https://github.com/deboxlibrary/typeorm/commit/b99b4ad))
+* respect database from connection urls ([#5640](https://github.com/deboxlibrary/typeorm/issues/5640)) ([ed75d59](https://github.com/deboxlibrary/typeorm/commit/ed75d59)), closes [#2096](https://github.com/deboxlibrary/typeorm/issues/2096)
+* sha.js import ([#5728](https://github.com/deboxlibrary/typeorm/issues/5728)) ([8c3f48a](https://github.com/deboxlibrary/typeorm/commit/8c3f48a))
+* Unknown fields are stripped from WHERE clause (issue [#3416](https://github.com/deboxlibrary/typeorm/issues/3416)) ([#5603](https://github.com/deboxlibrary/typeorm/issues/5603)) ([215f106](https://github.com/deboxlibrary/typeorm/commit/215f106))
+* update dependency mkdirp to 1.x ([#5748](https://github.com/deboxlibrary/typeorm/issues/5748)) ([edeb561](https://github.com/deboxlibrary/typeorm/commit/edeb561))
+* update Entity decorator return type to ClassDecorator ([#5776](https://github.com/deboxlibrary/typeorm/issues/5776)) ([7d8a1ca](https://github.com/deboxlibrary/typeorm/commit/7d8a1ca))
+* use an empty string enum as the type of a primary key column ([#6063](https://github.com/deboxlibrary/typeorm/issues/6063)) ([8e0d817](https://github.com/deboxlibrary/typeorm/commit/8e0d817)), closes [#3874](https://github.com/deboxlibrary/typeorm/issues/3874)
+* use correct typings for the result of `getUpsertedIds()` ([#5878](https://github.com/deboxlibrary/typeorm/issues/5878)) ([2ab88c2](https://github.com/deboxlibrary/typeorm/commit/2ab88c2))
+* wrong table name parameter when not using default schema ([#5801](https://github.com/deboxlibrary/typeorm/issues/5801)) ([327144a](https://github.com/deboxlibrary/typeorm/commit/327144a))
+
+
+### Features
+
+* add FOR NO KEY UPDATE lock mode for postgresql ([#5971](https://github.com/deboxlibrary/typeorm/issues/5971)) ([360122f](https://github.com/deboxlibrary/typeorm/commit/360122f))
+* add name option to view column ([#5962](https://github.com/deboxlibrary/typeorm/issues/5962)) ([3cfcc50](https://github.com/deboxlibrary/typeorm/commit/3cfcc50)), closes [#5708](https://github.com/deboxlibrary/typeorm/issues/5708)
+* Add soft remove and recover methods to entity ([#5854](https://github.com/deboxlibrary/typeorm/issues/5854)) ([9d2b8e0](https://github.com/deboxlibrary/typeorm/commit/9d2b8e0))
+* added support for NOWAIT & SKIP LOCKED in Postgres ([#5927](https://github.com/deboxlibrary/typeorm/issues/5927)) ([2c90e1c](https://github.com/deboxlibrary/typeorm/commit/2c90e1c))
+* Aurora Data API - Postgres Support ([#5651](https://github.com/deboxlibrary/typeorm/issues/5651)) ([e584297](https://github.com/deboxlibrary/typeorm/commit/e584297))
+* aurora Data API - Support for AWS configuration options through aurora driver ([#5754](https://github.com/deboxlibrary/typeorm/issues/5754)) ([1829f96](https://github.com/deboxlibrary/typeorm/commit/1829f96))
+* create-column, update-column, version-column column kinds now support user specified values ([#5867](https://github.com/deboxlibrary/typeorm/issues/5867)) ([5a2eb30](https://github.com/deboxlibrary/typeorm/commit/5a2eb30)), closes [#3271](https://github.com/deboxlibrary/typeorm/issues/3271)
+* names of extra columns for specific tree types moved to NamingStrategy ([#5737](https://github.com/deboxlibrary/typeorm/issues/5737)) ([ec3be41](https://github.com/deboxlibrary/typeorm/commit/ec3be41))
+* PG allow providing a function for password ([#5673](https://github.com/deboxlibrary/typeorm/issues/5673)) ([265d1ae](https://github.com/deboxlibrary/typeorm/commit/265d1ae))
+* update cli migration up and down from any to void ([#5630](https://github.com/deboxlibrary/typeorm/issues/5630)) ([76e165d](https://github.com/deboxlibrary/typeorm/commit/76e165d))
+* UpdateResult returns affected rows in mysql ([#5628](https://github.com/deboxlibrary/typeorm/issues/5628)) ([17f2fff](https://github.com/deboxlibrary/typeorm/commit/17f2fff)), closes [#1308](https://github.com/deboxlibrary/typeorm/issues/1308)
+
+### 0.2.24 (2020-02-28)
+
+### 0.2.23 (2020-02-28)
+
+
+### Bug Fixes
+
+* .synchronize() drops json column on mariadb ([#5391](https://github.com/deboxlibrary/typeorm/issues/5391)) ([e3c78c1](https://github.com/deboxlibrary/typeorm/commit/e3c78c1)), closes [typeorm/typeorm#3636](https://github.com/typeorm/typeorm/issues/3636)
+* (base-entity) set create return type to T[] ([#5400](https://github.com/deboxlibrary/typeorm/issues/5400)) ([ceff897](https://github.com/deboxlibrary/typeorm/commit/ceff897))
+* add driver option to address Expo API change. Fixes typeorm/typeorm[#4846](https://github.com/deboxlibrary/typeorm/issues/4846) ([#5536](https://github.com/deboxlibrary/typeorm/issues/5536)) ([1ae2a9f](https://github.com/deboxlibrary/typeorm/commit/1ae2a9f))
+* add the enableArithAbort option to the sql server connection option typings ([#5526](https://github.com/deboxlibrary/typeorm/issues/5526)) ([d19dbc6](https://github.com/deboxlibrary/typeorm/commit/d19dbc6))
+* bug when default value in mssql were not updated if previous default was already set ([9fc8329](https://github.com/deboxlibrary/typeorm/commit/9fc8329))
+* change OrmUtils.mergeDeep to not merge RegExp objects ([#5182](https://github.com/deboxlibrary/typeorm/issues/5182)) ([0f51836](https://github.com/deboxlibrary/typeorm/commit/0f51836)), closes [#3534](https://github.com/deboxlibrary/typeorm/issues/3534)
+* change return type of migrations up/down ([#5573](https://github.com/deboxlibrary/typeorm/issues/5573)) ([502c356](https://github.com/deboxlibrary/typeorm/commit/502c356))
+* entity object undefined in update subscriber ([#5443](https://github.com/deboxlibrary/typeorm/issues/5443)) ([920bcfe](https://github.com/deboxlibrary/typeorm/commit/920bcfe)), closes [#4947](https://github.com/deboxlibrary/typeorm/issues/4947)
+* fixes simple-enum bug in sqlite ([#5423](https://github.com/deboxlibrary/typeorm/issues/5423)) ([22d2841](https://github.com/deboxlibrary/typeorm/commit/22d2841)), closes [#4147](https://github.com/deboxlibrary/typeorm/issues/4147)
+* fk on update should not use attributes of on delete ([2baa934](https://github.com/deboxlibrary/typeorm/commit/2baa934))
+* load typeorm-aurora-data-api-driver correctly when using webpack ([#4788](https://github.com/deboxlibrary/typeorm/issues/4788)) ([#5302](https://github.com/deboxlibrary/typeorm/issues/5302)) ([9da0d34](https://github.com/deboxlibrary/typeorm/commit/9da0d34))
+* not to make typeorm generate alter query on geometry column when that column was not changed ([#5525](https://github.com/deboxlibrary/typeorm/issues/5525)) ([ee57557](https://github.com/deboxlibrary/typeorm/commit/ee57557))
+* Oracle sql expression for date column ([#5305](https://github.com/deboxlibrary/typeorm/issues/5305)) ([40e9d3a](https://github.com/deboxlibrary/typeorm/commit/40e9d3a)), closes [#4452](https://github.com/deboxlibrary/typeorm/issues/4452) [#4452](https://github.com/deboxlibrary/typeorm/issues/4452)
+* refactoring instance of with Array.isArray() ([#5539](https://github.com/deboxlibrary/typeorm/issues/5539)) ([1e1595e](https://github.com/deboxlibrary/typeorm/commit/1e1595e))
+* Return NULL when normalize default null value ([#5517](https://github.com/deboxlibrary/typeorm/issues/5517)) ([1826b75](https://github.com/deboxlibrary/typeorm/commit/1826b75)), closes [#5509](https://github.com/deboxlibrary/typeorm/issues/5509)
+* SAP HANA driver fixes ([#5343](https://github.com/deboxlibrary/typeorm/issues/5343)) ([41fc60f](https://github.com/deboxlibrary/typeorm/commit/41fc60f))
+* SAP HANA driver fixes ([#5445](https://github.com/deboxlibrary/typeorm/issues/5445)) ([87b161f](https://github.com/deboxlibrary/typeorm/commit/87b161f))
+* SAP HANA driver fixes ([#5571](https://github.com/deboxlibrary/typeorm/issues/5571)) ([f24bb04](https://github.com/deboxlibrary/typeorm/commit/f24bb04))
+* save + null prototype object = Cannot convert object to primitive value [#4750](https://github.com/deboxlibrary/typeorm/issues/4750) ([#5566](https://github.com/deboxlibrary/typeorm/issues/5566)) ([e68bbd2](https://github.com/deboxlibrary/typeorm/commit/e68bbd2))
+* update foreign keys when table name changes ([#5482](https://github.com/deboxlibrary/typeorm/issues/5482)) ([7157cb3](https://github.com/deboxlibrary/typeorm/commit/7157cb3))
+* use OUTPUT INTO on SqlServer for returning columns ([#5361](https://github.com/deboxlibrary/typeorm/issues/5361)) ([6bac3ca](https://github.com/deboxlibrary/typeorm/commit/6bac3ca)), closes [#5160](https://github.com/deboxlibrary/typeorm/issues/5160) [#5160](https://github.com/deboxlibrary/typeorm/issues/5160)
+* use sha.js instead of crypto for hash calculation ([#5270](https://github.com/deboxlibrary/typeorm/issues/5270)) ([b380a7f](https://github.com/deboxlibrary/typeorm/commit/b380a7f))
+
+
+### Features
+
+* Add basic support for custom cache providers ([#5309](https://github.com/deboxlibrary/typeorm/issues/5309)) ([6c6bde7](https://github.com/deboxlibrary/typeorm/commit/6c6bde7))
+* add fulltext parser option ([#5380](https://github.com/deboxlibrary/typeorm/issues/5380)) ([dd73395](https://github.com/deboxlibrary/typeorm/commit/dd73395))
+* added generic type on `getRawOne`, `getRawMany` `getRawAndEntities` ([#5477](https://github.com/deboxlibrary/typeorm/issues/5477)) ([7a6976d](https://github.com/deboxlibrary/typeorm/commit/7a6976d))
+* soft delete ([#5034](https://github.com/deboxlibrary/typeorm/issues/5034)) ([3227c0b](https://github.com/deboxlibrary/typeorm/commit/3227c0b))
+
+### 0.2.22 (2019-12-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* aliases for very long relation names may be replaced with hashed strings
+
+* fix: avoid collisions by using longest possible hash
+
+Retain more entropy by not using only 8 characters of hashed aliases.
+
+* style: fix linter errors
+
+### Bug Fixes
+
+* use a prefix on SelectQueryBuilder internal parameters ([#5178](https://github.com/deboxlibrary/typeorm/issues/5178)) ([cacb08b](https://github.com/deboxlibrary/typeorm/commit/cacb08b)), closes [#5174](https://github.com/deboxlibrary/typeorm/issues/5174) [#5174](https://github.com/deboxlibrary/typeorm/issues/5174)
+
+
+### Features
+
+* hash aliases to avoid conflicts ([#5227](https://github.com/deboxlibrary/typeorm/issues/5227)) ([edc8e6d](https://github.com/deboxlibrary/typeorm/commit/edc8e6d))
+* implement driver options for NativeScript ([#5217](https://github.com/deboxlibrary/typeorm/issues/5217)) ([3e58426](https://github.com/deboxlibrary/typeorm/commit/3e58426))
+* SAP Hana support ([#5246](https://github.com/deboxlibrary/typeorm/issues/5246)) ([ec90341](https://github.com/deboxlibrary/typeorm/commit/ec90341))
+* speed ​​up id search in buildChildrenEntityTree ([#5202](https://github.com/deboxlibrary/typeorm/issues/5202)) ([2e628c3](https://github.com/deboxlibrary/typeorm/commit/2e628c3))
+
+### 0.2.21 (2019-12-05)
+
+
+### Bug Fixes
+
+* allow expireAfterSeconds 0 in Index decorator (close [#5004](https://github.com/deboxlibrary/typeorm/issues/5004)) ([#5005](https://github.com/deboxlibrary/typeorm/issues/5005)) ([d05467c](https://github.com/deboxlibrary/typeorm/commit/d05467c))
+* do not mutate connection options ([#5078](https://github.com/deboxlibrary/typeorm/issues/5078)) ([1047989](https://github.com/deboxlibrary/typeorm/commit/1047989))
+* mysql driver query streaming ([#5036](https://github.com/deboxlibrary/typeorm/issues/5036)) ([aff2f56](https://github.com/deboxlibrary/typeorm/commit/aff2f56))
+* remove consrc usage (postgres,cockroachdb) ([#4333](https://github.com/deboxlibrary/typeorm/issues/4333)) ([ce7cb16](https://github.com/deboxlibrary/typeorm/commit/ce7cb16)), closes [#4332](https://github.com/deboxlibrary/typeorm/issues/4332)
+* repo for app-root-path in lock file ([#5052](https://github.com/deboxlibrary/typeorm/issues/5052)) ([f0fd192](https://github.com/deboxlibrary/typeorm/commit/f0fd192))
+* resolve MySQL unique index check when bigNumberStrings is false ([#4822](https://github.com/deboxlibrary/typeorm/issues/4822)) ([d205574](https://github.com/deboxlibrary/typeorm/commit/d205574)), closes [#2737](https://github.com/deboxlibrary/typeorm/issues/2737)
+* resolve sorting bug for several mongo vesions with typeorm migration ([#5121](https://github.com/deboxlibrary/typeorm/issues/5121)) ([cb771a1](https://github.com/deboxlibrary/typeorm/commit/cb771a1)), closes [#5115](https://github.com/deboxlibrary/typeorm/issues/5115)
+* throwing error on duplicate migration names [#4701](https://github.com/deboxlibrary/typeorm/issues/4701) ([#4704](https://github.com/deboxlibrary/typeorm/issues/4704)) ([3e4dc9f](https://github.com/deboxlibrary/typeorm/commit/3e4dc9f))
+* unescaped column name in order clause of "migrations" ([#5108](https://github.com/deboxlibrary/typeorm/issues/5108)) ([c0c8566](https://github.com/deboxlibrary/typeorm/commit/c0c8566))
+* upgrade app-root-path ([#5023](https://github.com/deboxlibrary/typeorm/issues/5023)) ([7f87f0c](https://github.com/deboxlibrary/typeorm/commit/7f87f0c))
+
+
+### Features
+
+* add distinct on() support for postgres ([#4954](https://github.com/deboxlibrary/typeorm/issues/4954)) ([1293065](https://github.com/deboxlibrary/typeorm/commit/1293065))
+* add migrations transaction option to connection options ([#5147](https://github.com/deboxlibrary/typeorm/issues/5147)) ([fb60688](https://github.com/deboxlibrary/typeorm/commit/fb60688)), closes [#4629](https://github.com/deboxlibrary/typeorm/issues/4629) [#4629](https://github.com/deboxlibrary/typeorm/issues/4629)
+* asynchronous ormconfig support ([#5048](https://github.com/deboxlibrary/typeorm/issues/5048)) ([f9fdaee](https://github.com/deboxlibrary/typeorm/commit/f9fdaee)), closes [#4149](https://github.com/deboxlibrary/typeorm/issues/4149)
+* export Migration Execution API from main package (fixes [#4880](https://github.com/deboxlibrary/typeorm/issues/4880)) ([#4892](https://github.com/deboxlibrary/typeorm/issues/4892)) ([8f4f908](https://github.com/deboxlibrary/typeorm/commit/8f4f908))
+* support spatial types of MySQL 8+ ([#4794](https://github.com/deboxlibrary/typeorm/issues/4794)) ([231dadf](https://github.com/deboxlibrary/typeorm/commit/231dadf)), closes [#3702](https://github.com/deboxlibrary/typeorm/issues/3702)
+
+### 0.2.20 (2019-10-18)
+
+
+### Bug Fixes
+
+* allow EntitySchema to be passed to EntityRepository ([#4884](https://github.com/deboxlibrary/typeorm/issues/4884)) ([652a20e](https://github.com/deboxlibrary/typeorm/commit/652a20e))
+* better timestamp comparison ([#4769](https://github.com/deboxlibrary/typeorm/issues/4769)) ([0a13e6a](https://github.com/deboxlibrary/typeorm/commit/0a13e6a))
+* broken database option when using replication, changes introduced by [#4753](https://github.com/deboxlibrary/typeorm/issues/4753) ([#4826](https://github.com/deboxlibrary/typeorm/issues/4826)) ([df5479b](https://github.com/deboxlibrary/typeorm/commit/df5479b))
+* check for version of MariaDB before extracting COLUMN_DEFAULT ([#4783](https://github.com/deboxlibrary/typeorm/issues/4783)) ([c30b485](https://github.com/deboxlibrary/typeorm/commit/c30b485))
+* connection Reuse is broken in a Lambda environment: ([#4804](https://github.com/deboxlibrary/typeorm/issues/4804)) ([7962036](https://github.com/deboxlibrary/typeorm/commit/7962036))
+* ensure distinct property is respected cloning query builder ([#4843](https://github.com/deboxlibrary/typeorm/issues/4843)) ([ea17094](https://github.com/deboxlibrary/typeorm/commit/ea17094)), closes [#4842](https://github.com/deboxlibrary/typeorm/issues/4842)
+* FindOptionUtils export ([#4746](https://github.com/deboxlibrary/typeorm/issues/4746)) ([4a62b1c](https://github.com/deboxlibrary/typeorm/commit/4a62b1c)), closes [#4745](https://github.com/deboxlibrary/typeorm/issues/4745)
+* loading of aurora-data-api driver ([#4765](https://github.com/deboxlibrary/typeorm/issues/4765)) ([fbb8947](https://github.com/deboxlibrary/typeorm/commit/fbb8947))
+* migrations run in reverse order for mongodb ([#4702](https://github.com/deboxlibrary/typeorm/issues/4702)) ([2f27581](https://github.com/deboxlibrary/typeorm/commit/2f27581))
+* mongodb Cursor.forEach types ([#4759](https://github.com/deboxlibrary/typeorm/issues/4759)) ([fccbe3e](https://github.com/deboxlibrary/typeorm/commit/fccbe3e))
+* **postgres:** postgres query runner to create materialized view ([#4877](https://github.com/deboxlibrary/typeorm/issues/4877)) ([d744966](https://github.com/deboxlibrary/typeorm/commit/d744966))
+* Slack invite URL ([#4836](https://github.com/deboxlibrary/typeorm/issues/4836)) ([149af26](https://github.com/deboxlibrary/typeorm/commit/149af26))
+* **aurora:** apply mysql query fixes to aurora ([#4779](https://github.com/deboxlibrary/typeorm/issues/4779)) ([ee61c51](https://github.com/deboxlibrary/typeorm/commit/ee61c51))
+
+
+### Features
+
+* add name to MigrationInterface (fixes [#3933](https://github.com/deboxlibrary/typeorm/issues/3933) and fixes [#2549](https://github.com/deboxlibrary/typeorm/issues/2549)) ([#4873](https://github.com/deboxlibrary/typeorm/issues/4873)) ([4a73fde](https://github.com/deboxlibrary/typeorm/commit/4a73fde))
+* add new transaction mode to wrap each migration in transaction ([#4629](https://github.com/deboxlibrary/typeorm/issues/4629)) ([848fb1f](https://github.com/deboxlibrary/typeorm/commit/848fb1f))
+* add option to Column to specify the complete enumName ([#4824](https://github.com/deboxlibrary/typeorm/issues/4824)) ([d967180](https://github.com/deboxlibrary/typeorm/commit/d967180))
+* add support for cube array for PostgreSQL ([#4848](https://github.com/deboxlibrary/typeorm/issues/4848)) ([154a441](https://github.com/deboxlibrary/typeorm/commit/154a441))
+* implements Sqlite 'WITHOUT ROWID' table modifier ([#4688](https://github.com/deboxlibrary/typeorm/issues/4688)) ([c1342ad](https://github.com/deboxlibrary/typeorm/commit/c1342ad)), closes [#3330](https://github.com/deboxlibrary/typeorm/issues/3330)
+
+### 0.2.19 (2019-09-13)
+
+
+### Bug Fixes
+
+* "database" option error in driver when use "url" option for connection ([690e6f5](https://github.com/deboxlibrary/typeorm/commit/690e6f5))
+* "hstore injection" & properly handle NULL, empty string, backslashes & quotes in hstore key/value pairs ([#4720](https://github.com/deboxlibrary/typeorm/issues/4720)) ([3abe5b9](https://github.com/deboxlibrary/typeorm/commit/3abe5b9))
+* add SaveOptions and RemoveOptions into ActiveRecord ([#4318](https://github.com/deboxlibrary/typeorm/issues/4318)) ([a6d7ba2](https://github.com/deboxlibrary/typeorm/commit/a6d7ba2))
+* apostrophe in Postgres enum strings breaks query ([#4631](https://github.com/deboxlibrary/typeorm/issues/4631)) ([445c740](https://github.com/deboxlibrary/typeorm/commit/445c740))
+* change PrimaryColumn decorator to clone passed options ([#4571](https://github.com/deboxlibrary/typeorm/issues/4571)) ([3cf470d](https://github.com/deboxlibrary/typeorm/commit/3cf470d)), closes [#4570](https://github.com/deboxlibrary/typeorm/issues/4570)
+* createQueryBuilder relation remove works only if using ID ([#2632](https://github.com/deboxlibrary/typeorm/issues/2632)) ([#4734](https://github.com/deboxlibrary/typeorm/issues/4734)) ([1d73a90](https://github.com/deboxlibrary/typeorm/commit/1d73a90))
+* resolve issue with conversion string to simple-json ([#4476](https://github.com/deboxlibrary/typeorm/issues/4476)) ([d1594f5](https://github.com/deboxlibrary/typeorm/commit/d1594f5)), closes [#4440](https://github.com/deboxlibrary/typeorm/issues/4440)
+* sqlite connections don't ignore the schema property ([#4599](https://github.com/deboxlibrary/typeorm/issues/4599)) ([d8f1c81](https://github.com/deboxlibrary/typeorm/commit/d8f1c81))
+* the excessive stack depth comparing types `FindConditions<?>` and `FindConditions<?>` problem ([#4470](https://github.com/deboxlibrary/typeorm/issues/4470)) ([7a0beed](https://github.com/deboxlibrary/typeorm/commit/7a0beed))
+* views generating broken Migrations ([#4726](https://github.com/deboxlibrary/typeorm/issues/4726)) ([c52b3d2](https://github.com/deboxlibrary/typeorm/commit/c52b3d2)), closes [#4123](https://github.com/deboxlibrary/typeorm/issues/4123)
+
+
+### Features
+
+* add `set` datatype support for MySQL/MariaDB ([#4538](https://github.com/deboxlibrary/typeorm/issues/4538)) ([19e2179](https://github.com/deboxlibrary/typeorm/commit/19e2179)), closes [#2779](https://github.com/deboxlibrary/typeorm/issues/2779)
+* add materialized View support for Postgres ([#4478](https://github.com/deboxlibrary/typeorm/issues/4478)) ([dacac83](https://github.com/deboxlibrary/typeorm/commit/dacac83)), closes [#4317](https://github.com/deboxlibrary/typeorm/issues/4317) [#3996](https://github.com/deboxlibrary/typeorm/issues/3996)
+* add mongodb `useUnifiedTopology` config parameter ([#4684](https://github.com/deboxlibrary/typeorm/issues/4684)) ([92e4270](https://github.com/deboxlibrary/typeorm/commit/92e4270))
+* add multi-dimensional cube support for PostgreSQL ([#4378](https://github.com/deboxlibrary/typeorm/issues/4378)) ([b6d6278](https://github.com/deboxlibrary/typeorm/commit/b6d6278))
+* add options to input init config for sql.js ([#4560](https://github.com/deboxlibrary/typeorm/issues/4560)) ([5c311ed](https://github.com/deboxlibrary/typeorm/commit/5c311ed))
+* add postgres pool error handler ([#4474](https://github.com/deboxlibrary/typeorm/issues/4474)) ([a925be9](https://github.com/deboxlibrary/typeorm/commit/a925be9))
+* add referenced table metadata to NamingStrategy to resolve foreign key name ([#4274](https://github.com/deboxlibrary/typeorm/issues/4274)) ([0094f61](https://github.com/deboxlibrary/typeorm/commit/0094f61)), closes [#3847](https://github.com/deboxlibrary/typeorm/issues/3847) [#1355](https://github.com/deboxlibrary/typeorm/issues/1355)
+* add support for ON CONFLICT for cockroach ([#4518](https://github.com/deboxlibrary/typeorm/issues/4518)) ([db8074a](https://github.com/deboxlibrary/typeorm/commit/db8074a)), closes [#4513](https://github.com/deboxlibrary/typeorm/issues/4513)
+* Added support for DISTINCT queries ([#4109](https://github.com/deboxlibrary/typeorm/issues/4109)) ([39a8e34](https://github.com/deboxlibrary/typeorm/commit/39a8e34))
+* Aurora Data API ([#4375](https://github.com/deboxlibrary/typeorm/issues/4375)) ([c321562](https://github.com/deboxlibrary/typeorm/commit/c321562))
+* export additional schema builder classes ([#4325](https://github.com/deboxlibrary/typeorm/issues/4325)) ([e589fda](https://github.com/deboxlibrary/typeorm/commit/e589fda))
+* log files loaded from glob patterns ([#4346](https://github.com/deboxlibrary/typeorm/issues/4346)) ([e12479e](https://github.com/deboxlibrary/typeorm/commit/e12479e)), closes [#4162](https://github.com/deboxlibrary/typeorm/issues/4162)
+* UpdateResult returns affected rows in postgresql ([#4432](https://github.com/deboxlibrary/typeorm/issues/4432)) ([7808bba](https://github.com/deboxlibrary/typeorm/commit/7808bba)), closes [#1308](https://github.com/deboxlibrary/typeorm/issues/1308)
+
+### 0.2.18 (2019-06-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* release 0.2.21-beta-7
+
+### Bug Fixes
+
+* **changelog:** Added missing line for PR [#4195](https://github.com/deboxlibrary/typeorm/issues/4195) ([c89c40f](https://github.com/deboxlibrary/typeorm/commit/c89c40f))
+* **docs:** Fixed many-to-many docs ([eaa38b0](https://github.com/deboxlibrary/typeorm/commit/eaa38b0)), closes [#4196](https://github.com/deboxlibrary/typeorm/issues/4196)
+* length limit for join table alias in FindOptions ([fc74ec9](https://github.com/deboxlibrary/typeorm/commit/fc74ec9))
+* remove base-model ([56338c5](https://github.com/deboxlibrary/typeorm/commit/56338c5))
+
+
+### Features
+
+* **class-transformer-shim:** Added support for metadata reflection ([20f6e9c](https://github.com/deboxlibrary/typeorm/commit/20f6e9c)), closes [#4219](https://github.com/deboxlibrary/typeorm/issues/4219)
+* **RelationDecorators:** allow to pass string instead of typeFunction ([4b74ec2](https://github.com/deboxlibrary/typeorm/commit/4b74ec2)), closes [#4190](https://github.com/deboxlibrary/typeorm/issues/4190)
+
+
+* release 0.2.21-beta-7 ([a5a3c91](https://github.com/deboxlibrary/typeorm/commit/a5a3c91))
+
+### 0.2.17 (2019-05-01)
+
+
+### Bug Fixes
+
+* enable explicitly insert primary key value into sqlite database ([4951d03](https://github.com/deboxlibrary/typeorm/commit/4951d03))
+* enable explicitly insert primary key value into sqlite database ([30c8052](https://github.com/deboxlibrary/typeorm/commit/30c8052))
+* Ensure transformers are called in the right order ([d913753](https://github.com/deboxlibrary/typeorm/commit/d913753))
+* InsertQueryBuilder performance issue for raw tables ([9ed2de4](https://github.com/deboxlibrary/typeorm/commit/9ed2de4))
+* **3953:** add missing spatial options in entity schema column definition ([1731c74](https://github.com/deboxlibrary/typeorm/commit/1731c74))
+* **3981:** update typescript deps in cli generated project ([2faf6f6](https://github.com/deboxlibrary/typeorm/commit/2faf6f6))
+
+
+### Features
+
+* Apply multiple transformers for postgres ([691a8fb](https://github.com/deboxlibrary/typeorm/commit/691a8fb))
+* Support array of transformers for all db ([d044725](https://github.com/deboxlibrary/typeorm/commit/d044725))
+* Support multiple transformers ([6728c5d](https://github.com/deboxlibrary/typeorm/commit/6728c5d))
+
+### 0.2.16 (2019-03-26)
+
+### 0.2.15 (2019-03-13)
+
+
+### Bug Fixes
+
+* **#3118:** max length of identifiers ([6c9af3d](https://github.com/deboxlibrary/typeorm/commit/6c9af3d)), closes [#3118](https://github.com/deboxlibrary/typeorm/issues/3118)
+* **3536:** fix sync schema issue with postgres enum in case capital letters in entity name ([0338d5e](https://github.com/deboxlibrary/typeorm/commit/0338d5e))
+
+### 0.2.14 (2019-02-25)
+
+
+### Bug Fixes
+
+* **postgres:** Fixed migration issue with postgres numeric enum type - change queries are not generated if enum is not modified ([08bcef1](https://github.com/deboxlibrary/typeorm/commit/08bcef1))
+
+### 0.2.13 (2019-02-10)
+
+
+### Bug Fixes
+
+* handle embedded documents through multiple levels resolves [#3551](https://github.com/deboxlibrary/typeorm/issues/3551) ([1abfcc1](https://github.com/deboxlibrary/typeorm/commit/1abfcc1))
+* make public mongodb attribute resolves [#3491](https://github.com/deboxlibrary/typeorm/issues/3491) ([8de0d46](https://github.com/deboxlibrary/typeorm/commit/8de0d46))
+* **3182:** fixed increment/decrement values of embeded entity ([fa0bfed](https://github.com/deboxlibrary/typeorm/commit/fa0bfed))
+* **3395:** handle transformer.from method in case column is NULL ([1d076e7](https://github.com/deboxlibrary/typeorm/commit/1d076e7))
+* **3517:** fixed undefined object id field in case property name is _id ([b6d616a](https://github.com/deboxlibrary/typeorm/commit/b6d616a))
+
+### 0.2.12 (2019-01-20)
+
+
+### Bug Fixes
+
+* **index:** sync index getRepository function signature with connection and entity manger ([0945072](https://github.com/deboxlibrary/typeorm/commit/0945072))
+* **mongodb:** do not pass false undefined options to mongo client ([af5df44](https://github.com/deboxlibrary/typeorm/commit/af5df44))
+* **mongodb:** use extra options ([e58a091](https://github.com/deboxlibrary/typeorm/commit/e58a091))
+* **postgres,mysql:** better support for enum and enum array ([ebfbb00](https://github.com/deboxlibrary/typeorm/commit/ebfbb00))
+
+
+### Features
+
+* updated caching docs for type IORedis Cluster ([2034a08](https://github.com/deboxlibrary/typeorm/commit/2034a08))
+
+### 0.2.11 (2019-01-02)
+
+### 0.2.10 (2019-01-02)
+
+
+### Bug Fixes
+
+* **column decorator:** create generation strategy on generated columns ([dbc28cd](https://github.com/deboxlibrary/typeorm/commit/dbc28cd)), closes [#2364](https://github.com/deboxlibrary/typeorm/issues/2364)
+* **query builder:** Throw error on missing or unknown properties ([c0dbb5a](https://github.com/deboxlibrary/typeorm/commit/c0dbb5a))
+* **test:** rowversion type is presented as timestamp type in SQL server ([150009b](https://github.com/deboxlibrary/typeorm/commit/150009b))
+* typo ([1b488f7](https://github.com/deboxlibrary/typeorm/commit/1b488f7))
+* **mongodb:** Do not duplicate ObjectIdColumn in DB and in entity ([8f25eec](https://github.com/deboxlibrary/typeorm/commit/8f25eec))
+* do not clear group by in subquery if paginating ([7216e7c](https://github.com/deboxlibrary/typeorm/commit/7216e7c))
+
+
+### Features
+
+* added support for IORedis in TypeORM caching ([c5fd942](https://github.com/deboxlibrary/typeorm/commit/c5fd942))
+* updated docs for ioredis. refact: changed clientType from string to redis | ioredis ([1ea3e1e](https://github.com/deboxlibrary/typeorm/commit/1ea3e1e))
+
+### 0.2.9 (2018-11-14)
+
+### 0.2.8 (2018-10-19)
+
+
+### Bug Fixes
+
+* **mysql:** support acquireTimeout pool connection property ([b33cf3f](https://github.com/deboxlibrary/typeorm/commit/b33cf3f))
+* **pgsql:** alter type of array enum cols ([a1c67e1](https://github.com/deboxlibrary/typeorm/commit/a1c67e1))
+* **pgsql:** empty array enum cols ([e4b13a0](https://github.com/deboxlibrary/typeorm/commit/e4b13a0))
+* **transactions:** remove session keyword from mysql transaction initiation with isolation level ([787910c](https://github.com/deboxlibrary/typeorm/commit/787910c))
+
+### 0.2.7 (2018-06-04)
+
+
+### Bug Fixes
+
+* enable explicitly insert primary key value into mysql database ([34e867d](https://github.com/deboxlibrary/typeorm/commit/34e867d))
+
+### 0.2.6 (2018-05-17)
+
+### 0.2.5 (2018-05-04)
+
+### 0.2.4 (2018-04-30)
+
+### 0.2.3 (2018-04-26)
+
+### 0.2.2 (2018-04-25)
+
+### 0.2.1 (2018-04-24)
+
+
+### Bug Fixes
+
+* change findOneById to findOne ([4db9d22](https://github.com/deboxlibrary/typeorm/commit/4db9d22))
+
+## 0.2.0 (2018-04-19)
+
+
+### Features
+
+* **test:** Use ts-node with typechecking and timeout ([156aa1b](https://github.com/deboxlibrary/typeorm/commit/156aa1b))
+
+### 0.1.19 (2018-03-28)
+
+### 0.1.18 (2018-03-26)
+
+### 0.1.17 (2018-03-26)
+
+### 0.1.16 (2018-03-07)
+
+### 0.1.15 (2018-03-07)
+
+### 0.1.14 (2018-02-28)
+
+### 0.1.13 (2018-02-27)
+
+
+### Bug Fixes
+
+* **dependencies:** Added source map support ([de65423](https://github.com/deboxlibrary/typeorm/commit/de65423))
+* **docs:** link to sqljs connection options ([22b1950](https://github.com/deboxlibrary/typeorm/commit/22b1950))
+* **transformers:** Fixed problem with transformes and entity update ([652176a](https://github.com/deboxlibrary/typeorm/commit/652176a))
+
+### 0.1.12 (2018-01-31)
+
+
+### Bug Fixes
+
+* **query-builder:** leftJoinAndSelect with subquery fixed ([6cee3cc](https://github.com/deboxlibrary/typeorm/commit/6cee3cc))
+* **test-coverage:** added failing test ([959d950](https://github.com/deboxlibrary/typeorm/commit/959d950))
+* **test-coverage:** coverage is back at CI ([fa17752](https://github.com/deboxlibrary/typeorm/commit/fa17752))
+* **test-coverage:** removed failing test ([1902aa6](https://github.com/deboxlibrary/typeorm/commit/1902aa6))
+
+### 0.1.10 (2018-01-08)
+
+### 0.1.9 (2017-12-13)
+
+### 0.1.8 (2017-12-12)
+
+### 0.1.7 (2017-12-01)
+
+
+### Features
+
+* findOneOrFail ([a69102c](https://github.com/deboxlibrary/typeorm/commit/a69102c))
+
+### 0.1.6 (2017-11-22)
+
+### 0.1.5 (2017-11-21)
+
+### 0.1.4 (2017-11-21)
+
+### 0.1.3 (2017-11-17)
+
+### 0.1.2 (2017-11-02)
+
+
+### Bug Fixes
+
+* missing export TransactionRepository in index.ts ([e5d9a81](https://github.com/deboxlibrary/typeorm/commit/e5d9a81))
+
+### 0.1.1 (2017-10-17)
+
+## 0.1.0 (2017-10-09)
+
+
+### Bug Fixes
+
+* typeorm/typeorm[#953](https://github.com/deboxlibrary/typeorm/issues/953) ([ccf4d85](https://github.com/deboxlibrary/typeorm/commit/ccf4d85))
+
+### 0.0.9 (2017-02-23)
+
+### 0.0.8 (2017-01-27)
+
+### 0.0.7 (2017-01-21)
+
+### 0.0.6 (2016-12-29)
+
+### 0.0.5 (2016-12-12)
+
+### 0.0.4 (2016-12-07)
+
+### 0.0.3 (2016-12-06)
+
+### 0.0.2 (2016-12-06)
+
 ## [0.2.25](https://github.com/typeorm/typeorm/compare/0.2.24...0.2.25) (2020-05-19)
 
 ### Bug Fixes
